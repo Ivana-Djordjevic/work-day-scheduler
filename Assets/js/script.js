@@ -1,49 +1,88 @@
-// code to display the current date in the header of the page.
-const currentDate = dayjs().format('YYYY, dddd, MMMM D');
-const header = $('header');
-const dateElement = $('#currentDay');
+const hourNotes = {
+  9: '',
+  10: '',
+  11: '',
+  12: '',
+  13: '',
+  14: '',
+  15: '',
+  16: '',
+  17: '',
+}
 
-dateElement.text(currentDate);
-header.append(dateElement);
+function hydrateNotes() {
+  const calendarNotes = localStorage.getItem('calendarHours');
 
-const saveBtns = $('.saveBtn');
+  if (calendarNotes === null) {
+    localStorage.setItem('calendarHours', JSON.stringify(hourNotes))
+  } else {
+   
+    Object.assign(hourNotes, JSON.parse(calendarNotes));
+  }
+}
 
-saveBtns.each(function(i){
+function getNoteByHour(selectedHourNumber) {
 
-  $(this).on('click', function() {
+  const selectedHourValue = hourNotes[selectedHourNumber];
+ return selectedHourValue;
+}
 
-    const selectedHour = $(this).closest('div').text();
-    const userInput = $(this).siblings('textarea').val();
+function setNoteByHour(selectedHourNumber, userInput) {
+  hourNotes[selectedHourNumber] = userInput;   
+  localStorage.setItem('calendarHours', JSON.stringify(hourNotes));
+}
 
-    localStorage.setItem(selectedHour, userInput);
+$().ready(function(){
 
-    // so selectedHour can be access in the dynamicColorBlockChanges()
-    dynamicColorBlockChanges(selectedHour, userInput);
-    loadInputUser(selectedHour, userInput);
-    userInputVerification(selectedHour, userInput)
+  hydrateNotes();
+
+  const refreshTimeInfo = setInterval(changeColorBlocks, 1000)
+
+  const currentDate = dayjs().format('YYYY, dddd, MMMM D');
+  const header = $('header');
+  const dateElement = $('#currentDay');
+  
+  dateElement.text(currentDate);
+  header.append(dateElement);
+  
 
 
+  const textareaEls = $('.description');
+
+  textareaEls.each(function(i) {
+    
+    const hourNoteKey = $(this).siblings('div').attr('data-value');
+
+    const savedUserInput = getNoteByHour(hourNoteKey) 
+
+    $(this).val(savedUserInput);
   })
-});
 
+  const saveBtns = $('.saveBtn');
 
-function loadInputUser (selectedHour, userInput) {
+  saveBtns.each(function(i){
+  
+    $(this).on('click', function() {
+  
+      const selectedHour = $(this).siblings('div').attr('data-value');
+      const userInput = $(this).siblings('textarea').val();
+    
+      setNoteByHour(selectedHour, userInput);
+    })
+  });
+})
 
-  console.log(selectedHour, userInput, 'please work '); //works 
+function loadInputUser () {
 
   $('textarea').text = localStorage.getItem(userInput);
-
-  console.log('please work 2.0' + userInput, selectedHour); //works
-
 }
 
   function userInputVerification (selectedHour, userInput) {
     
-    console.log('under the userInputVerification these do not come thru' + selectedHour, userInput); // nope
-
     const timeBlock = $('.time-block');
     
     for (let index = 0; index < timeBlock.length - 1; index++) {
+
 
       if (userInput === []) {
         loadInputUser();
@@ -55,25 +94,30 @@ function loadInputUser (selectedHour, userInput) {
     }
   }
 
-function dynamicColorBlockChanges (selectedHour) {
-
-  console.log('this is suppose to show the key(selectedHour): '+ selectedHour) // it works after i save but not before
+function changeColorBlocks () {
   
-  let now = dayjs().format('h');
-  console.log('time maintenant' + now); // works 
+  const now = dayjs().format('H');
+  const nowNumber = Number(now)
 
-  const textareaEl = $('.description');
+  const minutes = dayjs().format('m');
+  const minutesNumber = Number(minutes);
+  
+  const textareaEls = $('.description');
 
-  if (selectedHour < now) {
-    textareaEl.addClass('past');
+  textareaEls.each(function(){
 
-  } else if (selectedHour === now) {
-    textareaEl.addClass('present');
+   const hourNoteKey = $(this).siblings('div').attr('data-value');
+   const selectedHourNumber = Number(hourNoteKey)
+
+  if (selectedHourNumber < nowNumber) {
+    $(this).addClass('past');
+
+  } else if (selectedHourNumber === nowNumber) {
+    $(this).addClass('present');
+    $(this).attr('opacity', minutesNumber/60) // not working 
 
   } else {
-    textareaEl.addClass('future');
+    $(this).addClass('future');
   }
+  })
   };
-
-  dynamicColorBlockChanges();
-  userInputVerification();

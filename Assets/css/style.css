@@ -21,7 +21,6 @@ textarea {
 
 .time-block {
   border-radius: 15px;
-  /* align-items: center; */
 }
 
 .row {
@@ -29,7 +28,7 @@ textarea {
 }
 
 .hour {
-  background-color: #ffffff;
+  background-color: #dfbfbfd7;
   border-top-left-radius : 15px;
   border-bottom-left-radius: 15px;
   color: #000000;
@@ -37,17 +36,17 @@ textarea {
 }
 
 .past {
-  background-color: #95808e;
+  background-color: #8e8e8ed9;
   color: white;
 }
 
 .present {
-  background-color: #0de7f2;
-  color: white;
+  background-color: #ddeb6f;
+  color: rgb(37, 17, 54);
 }
 
 .future {
-  background-color: #462c78;
+  background-color: #dfbfbfd7;
   color: white;
 }
 
@@ -55,7 +54,7 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: #3390be61;
   color: white;
 }
 
