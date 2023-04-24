@@ -29,14 +29,15 @@ Acceptance Criteria
 
 While I have met the requirements for this project, there are additional features that would optimize the usage of it such as:
 
-- figure out why the 1 PM is that big
+- fix the 1 PM block whose size is inconsistent with the rest of the scheduler
 - include the option to clear the user's inputs
-- optimize/debug the feature to have a gradient in the "present" class. I find this importat because, that way it will be a visual representation of where the hour is at, which would remove the possibilties of any confusion that could result as is. for example, if it is 10:58 AM - assuming the user is using only the calendar to check in and plan - the present color would indicate that there's still enough time alloted to complete said task, which is a little misleading given there's only 2 more minutes to 11 AM. In conclusion, this feature would reduce the potential for uncertainty and anxiety.
+- optimize/debug the feature to have a gradient in the "present" class. I consider this feature to be of great importance as it enables a clear and concise visual representation of the current hour, eliminating any potential confusion that may arise with the current version of the application. For instance, suppose a user is solely relying on the scheduler for time management and it is currently 10:58 AM. At first glance, the present color would indicate that it is still in the 10 AM range, which is a little misleading given there's only 2 more minutes to 11 AM. This could lead the user to believe that there's enough time alloted for the given task(s) in that hour. Thus, incorporating this feature would significantly mitigate the likelihood of uncertainty and it would instill trust in the application.
 
 The image below displays what the scheduler looks like:
-(take pic at 10 am, so all colors are present)
 
-Here is the link: https://runningaroundintheabyss.github.io/work-day-schedule/ //deploy the page 
+![preview of the scheduler](https://user-images.githubusercontent.com/127266659/234089750-89ac854b-5ba7-432d-9b4e-a64af7137add.png)
+
+Here is the link: https://runningaroundintheabyss.github.io/work-day-schedule/ 
 
 ## Instalations
 
