@@ -1,99 +1,65 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Work Day Scheduler
 
-## Your Task
+## Description
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+The goal is the following:
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+**
+User Story
+- AS AN employee with a busy schedule
+- I WANT to add important events to a daily planner
+- SO THAT I can manage my time effectively
 
-## User Story
+Acceptance Criteria
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+- GIVEN I am using a daily planner to create a schedule
+- WHEN I open the planner
+- THEN the current day is displayed at the top of the calendar
+- WHEN I scroll down
+- THEN I am presented with timeblocks for standard business hours
+- WHEN I view the timeblocks for that day
+- THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+- WHEN I click into a timeblock
+- THEN I can enter an event
+- WHEN I click the save button for that timeblock
+- THEN the text for that event is saved in local storage
+- WHEN I refresh the page
+- THEN the saved events persist
+**
 
-## Acceptance Criteria
+While I have met the requirements for this project, there are additional features that would optimize the usage of it such as:
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+- figure out why the 1 PM is that big
+- include the option to clear the user's inputs
+- optimize/debug the feature to have a gradient in the "present" class. I find this importat because, that way it will be a visual representation of where the hour is at, which would remove the possibilties of any confusion that could result as is. for example, if it is 10:58 AM - assuming the user is using only the calendar to check in and plan - the present color would indicate that there's still enough time alloted to complete said task, which is a little misleading given there's only 2 more minutes to 11 AM. In conclusion, this feature would reduce the potential for uncertainty and anxiety.
 
-The following animation demonstrates the application functionality:
+The image below displays what the scheduler looks like:
+(take pic at 10 am, so all colors are present)
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+Here is the link: https://runningaroundintheabyss.github.io/work-day-schedule/ //deploy the page 
 
-## Grading Requirements
+## Instalations
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+N/A
 
-This Challenge is graded based on the following criteria:
+## Usage
 
-### Technical Acceptance Criteria: 40%
+A scheduler to aid the user in time management.
 
-* Satisfies all of the above acceptance criteria plus the following:
+## Credits
 
-  * Uses a date utility library to work with date and time
+- check initial commit for the starter code
 
-### Deployment: 32%
+ ** from their README file 
 
-* Application deployed at live URL
+https://ucdavis.bootcampcontent.com/ucdavis-boot-camp/UCD-VIRT-FSF-PT-03-2023-U-LOLC/-/blob/main/04-Web-APIs/02-Challenge/README.md 
 
-* Application loads with no errors
+- time API: https://day.js.org/en/
 
-* Application GitHub URL submitted
+## License
 
-* GitHub repo contains application code
+MIT License
 
-### Application Quality: 15%
 
-* Application user experience is intuitive and easy to navigate
 
-* Application user interface style is clean and polished
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
