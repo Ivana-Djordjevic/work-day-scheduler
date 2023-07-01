@@ -29,8 +29,7 @@ Acceptance Criteria
 
 While I have met the requirements for this project, there are additional features that would optimize the usage of it such as:
 
-- fix the 1 PM block whose size is inconsistent with the rest of the scheduler
-- include the option to clear the user's inputs
+- user experience: include the option to clear the user's inputs
 - optimize/debug the feature to have a gradient in the "present" class. I consider this feature to be of great importance as it enables a clear and concise visual representation of the current hour, eliminating any potential confusion that may arise with the current version of the application. For instance, suppose a user is solely relying on the scheduler for time management and it is currently 10:58 AM. At first glance, the present color would indicate that it is still in the 10 AM range, which is a little misleading given there's only 2 more minutes to 11 AM. This could lead the user to believe that there's enough time alloted for the given task(s) in that hour. Thus, incorporating this feature would significantly mitigate the likelihood of uncertainty and it would instill trust in the application.
 
 The image below displays what the scheduler looks like:
