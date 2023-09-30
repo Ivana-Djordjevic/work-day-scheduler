@@ -84,7 +84,7 @@ function loadInputUser () {
     for (let index = 0; index < timeBlock.length - 1; index++) {
 
 
-      if (userInput === []) {
+      if (userInput.length === 0) {
         loadInputUser();
 
       } else {
@@ -101,7 +101,7 @@ function changeColorBlocks () {
 
   const minutes = dayjs().format('m');
   const minutesNumber = Number(minutes);
-  
+  console.log(minutesNumber)
   const textareaEls = $('.description');
 
   textareaEls.each(function(){
@@ -113,8 +113,8 @@ function changeColorBlocks () {
     $(this).addClass('past');
 
   } else if (selectedHourNumber === nowNumber) {
-    $(this).addClass('present');
-    $(this).attr('opacity', minutesNumber/60) // not working 
+    let percent = Math.round(minutesNumber/60*100)
+    $(this).css('background', `linear-gradient(to bottom, #8e8e8ed9 ${percent}%, #ddeb6f ${100-percent}%)`)  
 
   } else {
     $(this).addClass('future');
