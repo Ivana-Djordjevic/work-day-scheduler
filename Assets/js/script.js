@@ -121,13 +121,12 @@ function changeColorBlocks () {
   })
 };
 
-const resetbtn = document.querySelector('#reset')
+const resetbtn = document.querySelector('#reset');
 
 function deleteData(event) {
   localStorage.removeItem('calendarHours');
   location.reload();
-
 }
 
-resetbtn.addEventListener('click', deleteData)
+resetbtn.addEventListener('click', deleteData);
 

@@ -62,4 +62,6 @@ textarea {
   margin-top: 10px;
   margin-left: 47%;
   margin-bottom: 10px;
+  border-radius: 15px;
+  padding: 5px;
 }
