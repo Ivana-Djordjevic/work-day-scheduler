@@ -101,7 +101,6 @@ function changeColorBlocks () {
 
   const minutes = dayjs().format('m');
   const minutesNumber = Number(minutes);
-  console.log(minutesNumber)
   const textareaEls = $('.description');
 
   textareaEls.each(function(){
@@ -120,4 +119,15 @@ function changeColorBlocks () {
     $(this).addClass('future');
   }
   })
-  };
+};
+
+const resetbtn = document.querySelector('#reset')
+
+function deleteData(event) {
+  localStorage.removeItem('calendarHours');
+  location.reload();
+
+}
+
+resetbtn.addEventListener('click', deleteData)
+
