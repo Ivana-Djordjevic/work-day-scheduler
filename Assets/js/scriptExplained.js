@@ -28,7 +28,8 @@ const hourNotes = {
       // likewise JSON.parse converts the JSON string from the browser to a JS object.
       Object.assign(hourNotes, JSON.parse(calendarNotes));
       // Object.assign() accepts two types of arguments
-      // Object.assign(target, ...sources) 
+      // Object.assign(target, ...sources)
+      // applies the property of calendarNotes to the hourNotes object 
       // it's used to merge the properties and values from the parsed object into the 'hourNotes' object
       // meaning it will merge the corresponding saved notes with the associated hour
       // ensures that 'hournotes' object is updated with previously stored notes from local storage
@@ -77,7 +78,7 @@ const hourNotes = {
     // iterates over the elements with the class 'description'
     textareaEls.each(function(i) {
 
-    // retrieves an attribute naled 'data-value' which corresponds to the hour
+    // retrieves an attribute named 'data-value' which corresponds to the hour
     // and stores it in 'hourNoteKey'
       const hourNoteKey = $(this).siblings('div').attr('data-value');
     // Calls the getNoteByHour(hourNoteKey) function to retrieve the user's saved input associated with the specific hour.
@@ -147,7 +148,6 @@ const hourNotes = {
   
     } else if (selectedHourNumber === nowNumber) {
       $(this).addClass('present');
-      // $(this).attr('opacity', minutesNumber/60) // not working 
   
     } else {
       $(this).addClass('future');

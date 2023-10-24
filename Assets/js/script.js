@@ -24,7 +24,7 @@ function hydrateNotes() {
 function getNoteByHour(selectedHourNumber) {
 
   const selectedHourValue = hourNotes[selectedHourNumber];
- return selectedHourValue;
+  return selectedHourValue;
 }
 
 function setNoteByHour(selectedHourNumber, userInput) {
@@ -45,8 +45,6 @@ $().ready(function(){
   dateElement.text(currentDate);
   header.append(dateElement);
   
-
-
   const textareaEls = $('.description');
 
   textareaEls.each(function(i) {
@@ -77,22 +75,22 @@ function loadInputUser () {
   $('textarea').text = localStorage.getItem(userInput);
 }
 
-  function userInputVerification (selectedHour, userInput) {
-    
-    const timeBlock = $('.time-block');
-    
-    for (let index = 0; index < timeBlock.length - 1; index++) {
+function userInputVerification (selectedHour, userInput) {
+  
+  const timeBlock = $('.time-block');
+  
+  for (let index = 0; index < timeBlock.length - 1; index++) {
 
 
-      if (userInput.length === 0) {
-        loadInputUser();
+    if (userInput.length === 0) {
+      loadInputUser();
 
-      } else {
-        (userInput === null)
-          return;
-        }
-    }
+    } else {
+      (userInput === null)
+        return;
+      }
   }
+}
 
 function changeColorBlocks () {
   
@@ -113,7 +111,8 @@ function changeColorBlocks () {
 
   } else if (selectedHourNumber === nowNumber) {
     let percent = Math.round(minutesNumber/60*100)
-    $(this).css('background', `linear-gradient(to bottom, #8e8e8ed9 ${percent}%, #ddeb6f ${100-percent}%)`)  
+ 
+    $(this).css('background', `linear-gradient(to bottom, #8e8e8ed9 ${percent}%, #ddeb6f ${percent+(percent/50)}%)`)  
 
   } else {
     $(this).addClass('future');
@@ -123,9 +122,21 @@ function changeColorBlocks () {
 
 const resetbtn = document.querySelector('#reset');
 
-function deleteData(event) {
-  localStorage.removeItem('calendarHours');
-  location.reload();
+function deleteData() {
+
+  for(let notes in hourNotes) {
+    hourNotes[notes] = ''
+  }
+  const textareaEls = $('.description');
+
+  textareaEls.each(function(i) {
+    
+    const hourNoteKey = $(this).siblings('div').attr('data-value');
+
+    const savedUserInput = getNoteByHour(hourNoteKey) 
+
+    $(this).val(savedUserInput);
+  })
 }
 
 resetbtn.addEventListener('click', deleteData);
