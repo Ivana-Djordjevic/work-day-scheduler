@@ -36,7 +36,7 @@ The image below displays what the scheduler looks like:
 <img width="644" alt="Screenshot of the work scheduler" src="https://github.com/runningaroundintheabyss/work-day-scheduler/assets/127266659/b0689f6f-7b50-44eb-a78d-293f524c762d">
 
 
-Here is the link: https://runningaroundintheabyss.github.io/work-day-scheduler/ 
+Here is the link: https://ivana-djordjevic.github.io/work-day-scheduler/
 
 ## Instalations
 
